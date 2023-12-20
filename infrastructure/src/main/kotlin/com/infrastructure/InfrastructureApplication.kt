@@ -1,11 +1,11 @@
-package com.searchblog
+package com.infrastructure
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class AppApplication
+class InfrastructureApplication
 
 fun main(args: Array<String>) {
-	runApplication<AppApplication>(*args)
+  runApplication<InfrastructureApplication>(*args)
 }

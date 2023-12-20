@@ -15,3 +15,8 @@ out/
 ./search-blog/.gradle
 ./search-blog/build/
 !./search-blog/gradle/wrapper/gradle-wrapper.jar
+
+./infrastructure/.idea
+./infrastructure/.gradle
+./infrastructure/build/
+!./infrastructure/gradle/wrapper/gradle-wrapper.jar
