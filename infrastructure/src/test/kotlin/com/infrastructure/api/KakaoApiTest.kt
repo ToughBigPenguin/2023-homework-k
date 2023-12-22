@@ -1,5 +1,6 @@
 package com.infrastructure.api
 
+import com.searchblog.infrastructure.api.KakaoApi
 import kotlinx.coroutines.runBlocking
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer

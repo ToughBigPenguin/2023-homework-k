@@ -1,15 +1,12 @@
-package com.infrastructure.api
+package com.searchblog.infrastructure.api
 
-import ch.qos.logback.classic.Logger
 import java.time.Duration
 import mu.KotlinLogging
-import org.springframework.http.HttpStatus
 import org.springframework.http.HttpStatusCode
 import org.springframework.http.MediaType
 import org.springframework.http.client.reactive.ReactorClientHttpConnector
 import org.springframework.stereotype.Component
 import org.springframework.web.reactive.function.client.WebClient
-import org.springframework.web.reactive.function.client.awaitBody
 import org.springframework.web.reactive.function.client.awaitBodyOrNull
 import reactor.core.publisher.Mono
 import reactor.netty.http.client.HttpClient

@@ -1,4 +1,4 @@
-package com.infrastructure.api
+package com.searchblog.infrastructure.api
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
