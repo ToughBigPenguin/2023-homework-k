@@ -1,4 +1,4 @@
-package com.searchblog.api.interfaces
+package com.searchblog.api.interfaces.dto
 
 import com.searchblog.api.domain.Search
 

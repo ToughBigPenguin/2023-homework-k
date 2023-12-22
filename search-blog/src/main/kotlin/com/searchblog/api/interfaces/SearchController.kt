@@ -2,8 +2,9 @@ package com.searchblog.api.interfaces
 
 import com.searchblog.api.application.SearchService
 import com.searchblog.api.global.dto.ApiBaseResponse
+import com.searchblog.api.interfaces.dto.SearchRequest
+import com.searchblog.api.interfaces.dto.SearchResponse
 import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 
 @RestController

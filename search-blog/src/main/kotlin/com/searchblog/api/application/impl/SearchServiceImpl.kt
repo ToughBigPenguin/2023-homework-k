@@ -3,7 +3,7 @@ package com.searchblog.api.application.impl
 import com.searchblog.api.application.SearchService
 import com.searchblog.api.domain.Search
 import com.searchblog.api.infrastructure.SearchPort
-import com.searchblog.api.interfaces.SearchRequest
+import com.searchblog.api.interfaces.dto.SearchRequest
 import kotlinx.coroutines.runBlocking
 import org.springframework.stereotype.Service
 
