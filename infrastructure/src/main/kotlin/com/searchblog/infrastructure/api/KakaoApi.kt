@@ -1,5 +1,6 @@
 package com.searchblog.infrastructure.api
 
+import com.searchblog.infrastructure.api.dto.KakaoBlogResponse
 import java.time.Duration
 import mu.KotlinLogging
 import org.springframework.http.HttpStatusCode

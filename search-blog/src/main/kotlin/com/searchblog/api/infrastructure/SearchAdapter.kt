@@ -2,7 +2,7 @@ package com.searchblog.api.infrastructure
 
 import com.searchblog.api.domain.Search
 import com.searchblog.infrastructure.api.KakaoApi
-import com.searchblog.infrastructure.api.KakaoBlogResponse
+import com.searchblog.infrastructure.api.dto.KakaoBlogResponse
 import org.springframework.stereotype.Component
 
 @Component
