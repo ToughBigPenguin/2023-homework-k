@@ -1,4 +1,4 @@
-package com.infrastructure.api
+package com.searchblog.infrastructure.api
 
 import com.searchblog.infrastructure.api.KakaoApi
 import kotlinx.coroutines.runBlocking
