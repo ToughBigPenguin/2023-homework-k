@@ -2,6 +2,7 @@ package com.searchblog.api.interfaces
 
 import com.searchblog.api.application.SearchService
 import com.searchblog.api.global.dto.ApiBaseResponse
+import com.searchblog.api.interfaces.dto.SearchBlogRankResponse
 import com.searchblog.api.interfaces.dto.SearchBlogRequest
 import com.searchblog.api.interfaces.dto.SearchBlogResponse
 import org.springframework.web.bind.annotation.GetMapping
@@ -21,6 +22,16 @@ class SearchController(
     return ApiBaseResponse(
       data = SearchBlogResponse.of(
         searchService.search(searchBlogRequest = searchBlogRequest)
+      )
+    )
+  }
+
+  @GetMapping("/search/blog-rank")
+  fun searchBlogKeywordRank(): ApiBaseResponse<List<SearchBlogRankResponse>> {
+
+    return ApiBaseResponse(
+      data = SearchBlogRankResponse.of(
+        searchService.getSearchBlogKeywordRank()
       )
     )
   }

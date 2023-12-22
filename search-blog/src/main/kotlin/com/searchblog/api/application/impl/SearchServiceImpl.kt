@@ -2,9 +2,10 @@ package com.searchblog.api.application.impl
 
 import com.searchblog.api.application.SearchService
 import com.searchblog.api.domain.Search
+import com.searchblog.api.domain.SearchBlogRank
 import com.searchblog.api.infrastructure.SearchPort
 import com.searchblog.api.interfaces.dto.SearchBlogRequest
-import com.searchblog.infrastructure.db.SearchBlogHistoryEntity
+import com.searchblog.infrastructure.db.entity.SearchBlogHistoryEntity
 import com.searchblog.infrastructure.db.SearchBlogHistoryRepository
 import kotlinx.coroutines.runBlocking
 import org.springframework.stereotype.Service
@@ -34,5 +35,14 @@ class SearchServiceImpl(
         keyword = search
       )
     )
+  }
+
+  override fun getSearchBlogKeywordRank(): List<SearchBlogRank> {
+    return searchBlogHistoryRepository.findGroupByKeywordTop10().map {
+      SearchBlogRank(
+        keyword = it.keyword,
+        count = it.count,
+      )
+    }
   }
 }
