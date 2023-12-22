@@ -13,6 +13,7 @@ dependencies {
   testImplementation("org.springframework.boot:spring-boot-starter-test")
   testImplementation("org.springframework.boot:spring-boot-testcontainers")
   testImplementation("org.testcontainers:junit-jupiter")
+  testImplementation("io.github.serpro69:kotlin-faker:1.14.0")
 }
 
 tasks.named<Jar>("jar") {
