@@ -5,4 +5,6 @@ import com.searchblog.api.interfaces.dto.SearchBlogRequest
 
 interface SearchService {
   fun search(searchBlogRequest: SearchBlogRequest): Search
+
+  fun saveSearchBlogKeyword(search: String)
 }
