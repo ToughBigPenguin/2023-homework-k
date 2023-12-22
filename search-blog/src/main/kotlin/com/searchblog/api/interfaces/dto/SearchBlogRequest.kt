@@ -1,6 +1,6 @@
 package com.searchblog.api.interfaces.dto
 
-class SearchRequest(
+class SearchBlogRequest(
   val query: String,
 
   val sort: String,

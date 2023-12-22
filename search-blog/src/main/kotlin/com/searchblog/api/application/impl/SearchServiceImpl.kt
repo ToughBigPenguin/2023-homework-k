@@ -3,7 +3,7 @@ package com.searchblog.api.application.impl
 import com.searchblog.api.application.SearchService
 import com.searchblog.api.domain.Search
 import com.searchblog.api.infrastructure.SearchPort
-import com.searchblog.api.interfaces.dto.SearchRequest
+import com.searchblog.api.interfaces.dto.SearchBlogRequest
 import kotlinx.coroutines.runBlocking
 import org.springframework.stereotype.Service
 
@@ -11,12 +11,12 @@ import org.springframework.stereotype.Service
 class SearchServiceImpl(
   private val searchPort: SearchPort
 ) : SearchService {
-  override fun search(searchRequest: SearchRequest): Search = runBlocking{
+  override fun search(searchBlogRequest: SearchBlogRequest): Search = runBlocking{
     searchPort.getKakaoSearch(
-      query = searchRequest.query,
-      sort = searchRequest.sort,
-      page = searchRequest.page,
-      size = searchRequest.size,
+      query = searchBlogRequest.query,
+      sort = searchBlogRequest.sort,
+      page = searchBlogRequest.page,
+      size = searchBlogRequest.size,
     ) ?: Search.empty()
   }
 }

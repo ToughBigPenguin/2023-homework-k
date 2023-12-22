@@ -2,7 +2,7 @@ package com.searchblog.api.interfaces.dto
 
 import com.searchblog.api.domain.Search
 
-class SearchResponse(
+class SearchBlogResponse(
   val meta: Meta,
   val documents: List<Document>,
 ) {
@@ -22,8 +22,8 @@ class SearchResponse(
   )
 
   companion object {
-    fun of(search: Search): SearchResponse {
-      return SearchResponse(
+    fun of(search: Search): SearchBlogResponse {
+      return SearchBlogResponse(
         meta = Meta(
           totalCount = search.meta.totalCount,
           pageableCount = search.meta.pageableCount,
