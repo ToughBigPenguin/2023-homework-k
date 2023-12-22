@@ -34,4 +34,33 @@ class SearchBlogHistoryTest(
     // then
     assertThat(actual.size).isEqualTo(3)
   }
+
+  @Test
+  fun findGroupByKeywordTop10() {
+    // given
+    val saveSearchBlogHistory = mutableListOf(
+      SearchBlogHistoryEntityFixture.create(keyword = "카카오"),
+      SearchBlogHistoryEntityFixture.create(keyword = "카카오"),
+      SearchBlogHistoryEntityFixture.create(keyword = "카카오"),
+      SearchBlogHistoryEntityFixture.create(keyword = "다음"),
+      SearchBlogHistoryEntityFixture.create(keyword = "다음"),
+    )
+
+    // sample 30개
+    for (i in 0 until 30) {
+      saveSearchBlogHistory.add(SearchBlogHistoryEntityFixture.create())
+    }
+
+    searchBlogHistoryRepository.saveAll(saveSearchBlogHistory)
+
+    // when
+    val actual = searchBlogHistoryRepository.findGroupByKeywordTop10()
+
+    // then
+    assertThat(actual.size).isEqualTo(10)
+    assertThat(actual[0].keyword).isEqualTo("카카오")
+    assertThat(actual[0].count).isEqualTo(3)
+    assertThat(actual[1].keyword).isEqualTo("다음")
+    assertThat(actual[1].count).isEqualTo(2)
+  }
 }

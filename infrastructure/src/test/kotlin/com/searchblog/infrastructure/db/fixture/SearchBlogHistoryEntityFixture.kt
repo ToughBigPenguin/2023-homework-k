@@ -1,6 +1,6 @@
 package com.searchblog.infrastructure.db.fixture
 
-import com.searchblog.infrastructure.db.SearchBlogHistoryEntity
+import com.searchblog.infrastructure.db.entity.SearchBlogHistoryEntity
 import io.github.serpro69.kfaker.Faker
 import java.time.LocalDateTime
 
@@ -11,7 +11,7 @@ class SearchBlogHistoryEntityFixture {
 
     fun create(
       id: Long? = null,
-      keyword: String = faker.random.randomString(10),
+      keyword: String = faker.random.randomString(20),
       modifiedAt: LocalDateTime = LocalDateTime.now(),
       createdAt: LocalDateTime = LocalDateTime.now(),
     ): SearchBlogHistoryEntity {
