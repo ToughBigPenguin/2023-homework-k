@@ -3,13 +3,12 @@ package com.searchblog.infrastructure.api
 import com.searchblog.infrastructure.api.dto.KakaoBlogResponse
 import java.time.Duration
 import mu.KotlinLogging
-import org.springframework.http.HttpStatusCode
 import org.springframework.http.MediaType
 import org.springframework.http.client.reactive.ReactorClientHttpConnector
 import org.springframework.stereotype.Component
 import org.springframework.web.reactive.function.client.WebClient
-import org.springframework.web.reactive.function.client.awaitBodyOrNull
-import reactor.core.publisher.Mono
+import org.springframework.web.reactive.function.client.WebClientException
+import org.springframework.web.reactive.function.client.awaitBody
 import reactor.netty.http.client.HttpClient
 
 @Component
@@ -33,30 +32,24 @@ class KakaoApi(
     page: Int,
     size: Int,
   ): KakaoBlogResponse? {
-    // TODO : 타임아웃발생시 어떻게 할것인지?
-    val response: KakaoBlogResponse? = webClient.get()
-      .uri { uribulider ->
-        uribulider
-          .path("/v2/search/blog")
-          .queryParam("query", searchWord)
-          .queryParam("sort", sort)
-          .queryParam("page", page)
-          .queryParam("size", size)
-          .build()
-      }
-      .accept(MediaType.APPLICATION_JSON)
-      .retrieve()
-      .onStatus(HttpStatusCode::is4xxClientError) {
-        logger.warn { "KAKAO API CALL ERROR, status : ${it.statusCode()}" }
-        Mono.empty()
-      }
-      .onStatus(HttpStatusCode::is5xxServerError) {
-        logger.warn { "KAKAO API CALL ERROR, status : ${it.statusCode()}" }
-        Mono.empty()
-      }
-      .awaitBodyOrNull()
+    try {
+      return webClient.get()
+        .uri { uribulider ->
+          uribulider
+            .path("/v2/search/blog")
+            .queryParam("query", searchWord)
+            .queryParam("sort", sort)
+            .queryParam("page", page)
+            .queryParam("size", size)
+            .build()
+        }
+        .accept(MediaType.APPLICATION_JSON)
+        .retrieve()
+        .awaitBody()
+    } catch (e: WebClientException) {
+      logger.warn { "KAKAO API ERROR, message : ${e.message}" }
+    }
 
-
-    return response
+    return null
   }
 }

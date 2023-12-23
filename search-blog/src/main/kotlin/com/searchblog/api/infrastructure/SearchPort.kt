@@ -11,4 +11,11 @@ interface SearchPort {
     size: Int,
   ): Search?
 
+  suspend fun getNaverSearch(
+    query: String,
+    sort: String,
+    page: Int,
+    size: Int,
+  ): Search?
+
 }

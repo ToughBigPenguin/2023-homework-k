@@ -5,9 +5,9 @@ import com.fasterxml.jackson.annotation.JsonProperty
 class NaverBlogResponse(
   val lastBuildDate: String,
 
-  val total: Long,
+  val total: Int,
 
-  val start: Long,
+  val start: Int,
 
   val display: Long,
 

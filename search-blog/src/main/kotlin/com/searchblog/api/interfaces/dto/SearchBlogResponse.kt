@@ -17,7 +17,6 @@ class SearchBlogResponse(
     val url: String,
     val contents: String,
     val blogName: String,
-    val thumbnail: String,
     val datetime: String,
   )
 
@@ -35,7 +34,6 @@ class SearchBlogResponse(
             url = it.url,
             contents = it.contents,
             blogName = it.blogName,
-            thumbnail = it.thumbnail,
             datetime = it.datetime,
           )
         }
