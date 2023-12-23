@@ -17,7 +17,6 @@ class Search(
     val url: String,
     val contents: String,
     val blogName: String,
-    val thumbnail: String,
     val datetime: String,
   )
 
